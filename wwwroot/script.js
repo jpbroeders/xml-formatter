@@ -37,8 +37,27 @@ function formatXml(xmlString) {
         throw new Error('Error parsing XML');
     }
 
+    // Extract XML declaration if present (DOMParser discards it)
+    let output = '';
+    const xmlDeclMatch = xmlString.match(/^<\?xml[^?]*\?>/);
+    if (xmlDeclMatch) {
+        output += xmlDeclMatch[0] + '\n';
+    }
+
     // Convert the DOM recursively into an indented string
-    return domToString(xmlDoc.documentElement, 0);
+    output += domToString(xmlDoc.documentElement, 0);
+    return output;
+}
+
+/**
+ * Escapes special characters in XML attribute values.
+ */
+function escapeAttrValue(value) {
+    return value
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
 }
 
 /**
@@ -65,7 +84,7 @@ function domToString(node, level) {
             let attrs = '';
             for (let i = 0; i < node.attributes.length; i++) {
                 const attr = node.attributes[i];
-                attrs += ` ${attr.name}="${attr.value}"`;
+                attrs += ` ${attr.name}="${escapeAttrValue(attr.value)}"`;
             }
 
             // Determine if the element has child elements or just text
@@ -85,8 +104,12 @@ function domToString(node, level) {
                 }
             }
 
+            // If there are no child nodes at all, output as self-closing tag
+            if (node.childNodes.length === 0) {
+                output += `${indent}<${node.nodeName}${attrs}/>\n`;
+            }
             // If there are no child elements and we have text, output in one line
-            if (childElementCount === 0 && textContent) {
+            else if (childElementCount === 0 && textContent) {
                 output += `${indent}<${node.nodeName}${attrs}>${textContent}</${node.nodeName}>\n`;
             } else {
                 // Otherwise, output in multiline format
