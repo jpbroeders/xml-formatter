@@ -1,0 +1,47 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# GitHub
+.github
+.gitmodules
+
+# Development
+.vscode
+.vs
+*.user
+*.VisualState.xml
+
+# Build artifacts
+bin/
+obj/
+
+# Documentation
+*.md
+CHANGELOG
+LICENSE
+
+# IDE files
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+TestResults/
+coverage/
+*.trx
+.nyc_output
+
+# Environment
+*.env
+.env.local
+
+# Other
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Claude Code
+.claude/
