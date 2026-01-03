@@ -45,3 +45,9 @@ yarn-error.log
 
 # Claude Code
 .claude/
+.claudeignore
+CLAUDE.md
+
+# Logs
+logs/
+*.log

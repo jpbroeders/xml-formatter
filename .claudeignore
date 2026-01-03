@@ -1,0 +1,52 @@
+# .claudeignore - Files Claude Code should ignore
+
+# Git
+.git/
+
+# Build artifacts
+bin/
+obj/
+publish/
+artifacts/
+[Dd]ebug/
+[Rr]elease/
+
+# IDE and editor files
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.sln.iml
+
+# Logs
+logs/
+*.log
+
+# Docker
+Dockerfile
+.dockerignore
+
+# CI/CD
+.github/
+
+# Package managers
+node_modules/
+packages/
+
+# Test results
+TestResults/
+coverage/
+*.trx
+
+# Temporary files
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Environment files
+*.env
+.env.*
