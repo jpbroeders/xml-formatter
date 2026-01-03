@@ -6,7 +6,7 @@ EXPOSE 8080
 # Use the .NET SDK image to build the app
 FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
-COPY ["xml`-formatter.csproj", "./"]
+COPY ["xml-formatter.csproj", "./"]
 RUN dotnet restore "./xml-formatter.csproj"
 COPY . .
 RUN dotnet publish "xml-formatter.csproj" -c Release -o /app/publish
