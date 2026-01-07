@@ -1,33 +1,8 @@
 ﻿body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
-}
-
-header {
-    background: #2c3e50;
-    color: white;
-    padding: 15px 20px;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0 0 5px 0;
-    font-size: 1.5rem;
-}
-
-header p {
-    margin: 0;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-main {
-    display: flex;
-    flex: 1;
-    min-height: 0;
 }
 
 .container {
@@ -38,9 +13,9 @@ main {
     flex-direction: column;
 }
 
-.container button {
-    margin-bottom: 10px;
-}
+    .container button {
+        margin-bottom: 10px;
+    }
 
 #inputArea textarea {
     width: 100%;
@@ -58,21 +33,4 @@ main {
     border: 1px solid #ddd;
     height: 100%;
     overflow-y: scroll;
-}
-
-footer {
-    background: #34495e;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    font-size: 0.85rem;
-}
-
-footer a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
